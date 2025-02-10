@@ -263,7 +263,7 @@ def view_queue(client, message):
 @Client.on_message(filters.command("rem_queue") & filters.private)
 def view_queue(client, message):
     with download_lock:
-        if global_queue
+        if global_queue:
             asyncio.delete(global_queue)
             message.reply_text("All queue removed.")
             return
