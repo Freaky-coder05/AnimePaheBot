@@ -14,6 +14,10 @@ import subprocess
 import json
 from helper.utils import progress_for_pyrogram
 from config import LOG_CHANNEL
+import pyrogram.utils
+
+pyrogram.utils.MIN_CHAT_ID = -999999999999
+pyrogram.utils.MIN_CHANNEL_ID = -1009999999999
 def create_short_name(name):
     # Check if the name length is greater than 25
     if len(name) > 30:
