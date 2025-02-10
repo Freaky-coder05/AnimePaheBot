@@ -120,7 +120,7 @@ def send_and_delete_file(client, chat_id, dl_msg, file_path, thumbnail=None, cap
                 chat_id,
                 file_path,
                 thumb=thumbnail if thumbnail else None,
-                caption=caption
+                caption=caption,
                 progress=progress_for_pyrogram,
                 progress_args=("📤 Uploading your file as Document 📄...", dl_msg, time.time())
             )
@@ -142,7 +142,7 @@ def send_and_delete_file(client, chat_id, dl_msg, file_path, thumbnail=None, cap
                 supports_streaming= True,
                 has_spoiler= True,
                 thumb=None,
-                caption=caption
+                caption=caption,
                 progress=progress_for_pyrogram,
                 progress_args=("📤 Uploading your file as Video 📷...", dl_msg, time.time())
             
