@@ -259,14 +259,6 @@ def view_queue(client, message):
             queue_text += f"{i}. {user_profile_link} (Active Task = {task_count})\n"
 
         message.reply_text(queue_text, disable_web_page_preview=True)
-
-@Client.on_message(filters.command("rem_queue") & filters.private)
-def view_queue(client, message):
-    with download_lock:
-        if global_queue:
-            asyncio.delete(global_queue)
-            message.reply_text("All queue removed.")
-            return
 @Client.on_message(filters.command("latest") & filters.private)
 def send_latest_anime(client, message):
     try:
