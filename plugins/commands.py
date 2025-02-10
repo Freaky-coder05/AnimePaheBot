@@ -22,7 +22,7 @@ def start(client, message):
     
     id = message.from_user.id
     if id not in ADMIN:
-        await message.reply_text("❌ Sorry Only Admin can use me")
+        message.reply_text("❌ Sorry Only Admin can use me")
         
     if not present_user(id):
         try:
@@ -144,7 +144,7 @@ def set_upload_options(client, message):
 def search_anime(client, message):
     id = message.from_user.id
     if id not in ADMIN:
-        await message.reply_text("❌ You Can't able to Use this bot")
+        message.reply_text("❌ You Can't able to Use this bot")
     if not present_user(id):
         try:
             add_user(id)
