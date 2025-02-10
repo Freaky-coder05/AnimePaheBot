@@ -7,7 +7,7 @@ API_ID = 21740783
 API_HASH = "a5dc7fec8302615f5b441ec5e238cd46"
 BOT_TOKEN = "7766709030:AAEHnIF6EkNttAij4cOCZat74PMK5Ymm6is"
 #Logs
-LOG_CHANNEL = "-1002201298270" 
+LOG_CHANNEL = -1002201298270
 # MongoDB setup
 MONGO_URL = "mongodb+srv://Speedwolf1:speedwolf24689@cluster0.rgfywsf.mongodb.net/"
 DB_NAME = "Speedwolf1"
