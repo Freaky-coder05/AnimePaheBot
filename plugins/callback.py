@@ -59,8 +59,8 @@ def anime_details(client, callback_query):
         "title": title        # Store the poster URL here
     }
 
-    episode_button = InlineKeyboardMarkup([[InlineKeyboardButton("Episodes", callback_data="episodes")
-					    InlineKeyboardButton("close❌" , callback_data="close")]])
+    episode_button = InlineKeyboardMarkup([[InlineKeyboardButton("Episodes", callback_data="episodes")],
+					    [InlineKeyboardButton("close❌" , callback_data="close")]])
     client.send_photo(
         chat_id=callback_query.message.chat.id,
         photo=poster_url,
