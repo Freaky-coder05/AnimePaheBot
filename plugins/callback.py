@@ -265,7 +265,7 @@ def download_and_upload_file(client, callback_query):
         # Download the file
         download_file(direct_link, download_path)
         #callback_query.message.reply_text("File downloaded, uploading...")
-        dl_msg.edit("<b>Episode downloaded, uploading...</b>")
+        dl_msg.edit(f"<b> <pre> Episode downloaded, uploading...</pre></b>")
 
         # Fetch thumbnail
         user_thumbnail = get_thumbnail(user_id)
