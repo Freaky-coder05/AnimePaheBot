@@ -265,7 +265,7 @@ def download_and_upload_file(client, callback_query):
         # Download the file
         download_file(direct_link, download_path)
         #callback_query.message.reply_text("File downloaded, uploading...")
-        dl_msg.edit(f"<b> <pre> Episode downloaded, uploading...</pre></b>")
+        dl_msg.edit(f"<b> <pre> Episode downloaded Successfully ✅...</pre></b>")
 
         # Fetch thumbnail
         user_thumbnail = get_thumbnail(user_id)
@@ -286,7 +286,7 @@ def download_and_upload_file(client, callback_query):
         user_caption = get_caption(user_id)
         caption_to_use = user_caption if user_caption else file_name        
 
-        send_and_delete_file(client, callback_query.message.chat.id, download_path, thumb_path, caption_to_use, user_id)
+        send_and_delete_file(client, dl_msg, callback_query.message.chat.id, download_path, thumb_path, caption_to_use, user_id)
         # Remove the thumbnail file if it was downloaded
         remove_from_queue(user_id, direct_link)
         dl_msg.edit(f"<b><pre>Episode Uploaded 🎉</pre></b>")
