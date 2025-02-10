@@ -286,7 +286,7 @@ def download_and_upload_file(client, callback_query):
         user_caption = get_caption(user_id)
         caption_to_use = user_caption if user_caption else file_name        
 
-        send_and_delete_file(client, dl_msg, callback_query.message.chat.id, download_path, thumb_path, caption_to_use, user_id)
+        send_and_delete_file(client, callback_query.message.chat.id, dl_msg, download_path, thumb_path, caption_to_use, user_id)
         # Remove the thumbnail file if it was downloaded
         remove_from_queue(user_id, direct_link)
         dl_msg.edit(f"<b><pre>Episode Uploaded 🎉</pre></b>")
