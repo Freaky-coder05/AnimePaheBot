@@ -107,6 +107,7 @@ def episode_list(client, callback_query, page=1):
 
     if nav_buttons:
         episode_buttons.append(nav_buttons)
+    episode_buttons.append([InlineKeyboardButton("Close❌", callback_data="close")])
 
     reply_markup = InlineKeyboardMarkup(episode_buttons)
 
@@ -180,8 +181,10 @@ def fetch_download_links(client, callback_query):
         [InlineKeyboardButton(link.get_text(strip=True), callback_data=f"dl_{link['href']}")]	
         for link in download_links
     ]
-    reply_markup = InlineKeyboardMarkup(download_buttons, [InlineKeyboardButton("Close❌" , callback_data="close")])
-    callback_query.message.reply_text("Select a download link:", reply_markup=reply_markup)
+    download_buttons.append([InlineKeyboardButton("Close❌", callback_data="close")])
+
+    reply_markup = InlineKeyboardMarkup(download_buttons)
+    callback_query.message.reply_text("Select The Download Button You Need Download:", reply_markup=reply_markup)
 
 @Client.on_callback_query(filters.regex(r"set_method_"))
 def change_upload_method(client, callback_query):
