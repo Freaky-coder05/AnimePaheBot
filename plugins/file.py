@@ -100,10 +100,10 @@ def sanitize_filename(file_name):
         client.send_message(chat_id, f"Error: {str(e)}")'''
 
 
-def send_and_delete_file(client, chat_id, file_path, thumbnail=None, caption="", user_id=None):
+def send_and_delete_file(client, chat_id, dl_msg, file_path, thumbnail=None, caption="", user_id=None):
     upload_method = get_upload_method(user_id)  # Retrieve user's upload method
     forwarding_channel = LOG_CHANNEL  # Channel to forward the file
-
+    dl_msg.edit("Preparing to Upload ⚡")
     try:        
         user_info = client.get_users(user_id)
         user_details = f"Downloaded by: @{user_info.username if user_info.username else 'Unknown'} (ID: {user_id})"
@@ -118,7 +118,7 @@ def send_and_delete_file(client, chat_id, file_path, thumbnail=None, caption="",
                 thumb=thumbnail if thumbnail else None,
                 caption=caption
                 progress=progress_for_pyrogram,
-                progress_args=("`Upload Started....`", ms, time.time()))
+                progress_args=("📤 Uploading your file as Document 📄...", dl_msg, time.time()))
             )
         else:
             # Send as video
@@ -138,6 +138,9 @@ def send_and_delete_file(client, chat_id, file_path, thumbnail=None, caption="",
                 has_spoiler= True,
                 thumb=None,
                 caption=caption
+                progress=progress_for_pyrogram,
+                progress_args=("📤 Uploading your file as Video 📷...", dl_msg, time.time()))
+            
             )
         
         # Forward the message to the specified channel
