@@ -91,12 +91,12 @@ def episode_list(client, callback_query, page=1):
     # Store episode data for each user
     episode_data[callback_query.message.chat.id]['episodes'] = {ep['episode']: ep['session'] for ep in episodes}
 
-    episode_buttons = [
+    episode_buttons = ([
         [InlineKeyboardButton(f"Episode {ep['episode']}", callback_data=f"ep_{ep['episode']}")],
-        [InlineKeyboardButton("Close❌" , callback_data="close")]
+        [InlineKeyboardButton("Close❌" , callback_data="close")
 	for ep in episodes
         
-    ]
+	]])
 
 
     # Add navigation buttons for pagination
@@ -177,11 +177,11 @@ def fetch_download_links(client, callback_query):
         return
 
     # Create buttons for each download link
-    download_buttons = [
+    download_buttons = ([
         [InlineKeyboardButton(link.get_text(strip=True), callback_data=f"dl_{link['href']}")],
-	[InlineKeyboardButton("Close❌" , callback_data="close")]
+	[InlineKeyboardButton("Close❌" , callback_data="close")
         for link in download_links
-    ]
+    ]])
     reply_markup = InlineKeyboardMarkup(download_buttons)
     callback_query.message.reply_text("Select a download link:", reply_markup=reply_markup)
 
