@@ -19,19 +19,23 @@ user_queries = {}
 @Client.on_message(filters.command("start") & filters.private)
 def start(client, message):
     # Choose a random image from the list
+    
     id = message.from_user.id
+    if id not in ADMIN:
+        await message.reply_text("❌ Sorry Only Admin can use me")
+        
     if not present_user(id):
         try:
             add_user(id)
         except Exception as e:
-            client.send_message(-1002457905787, f"{e}")
+            client.send_message(-100245790578, f"{e}")
             pass
     start_pic = random.choice(START_PIC)
     
     # Create inline buttons
     buttons = [
         [
-            InlineKeyboardButton("Owner", url="https://t.me/r4h4t_69"),
+            InlineKeyboardButton("Owner", url="https://t.me/Awt_botz"),
             InlineKeyboardButton("Help", callback_data="help")
         ],
         [
@@ -127,8 +131,9 @@ def set_upload_options(client, message):
         [
             InlineKeyboardButton(f"Document ({document_status})", callback_data="set_method_document"),
             InlineKeyboardButton(f"Video ({video_status})", callback_data="set_method_video")
-        ]
-    ]
+        ],[
+            InlineKeyboardButton("Close❌", callback_data="close")
+    ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     message.reply_text(f"Your Current Upload Method: {current_method.capitalize()}", reply_markup=reply_markup)
@@ -138,6 +143,8 @@ def set_upload_options(client, message):
 @Client.on_message(filters.command("anime") & filters.private)
 def search_anime(client, message):
     id = message.from_user.id
+    if id not in ADMIN:
+        await message.reply_text("❌ You Can't able to Use this bot")
     if not present_user(id):
         try:
             add_user(id)
@@ -162,10 +169,12 @@ def search_anime(client, message):
         [InlineKeyboardButton(anime['title'], callback_data=f"anime_{anime['session']}")]
         for anime in response['data']
     ]
+    anime_buttons.append([InlineKeyboardButton("Close❌", callback_data="close")])
+    
     reply_markup = InlineKeyboardMarkup(anime_buttons)
     # Reply to the same message with anime title buttons
     #message.reply_text("Select an anime:", reply_markup=reply_markup, quote=True)
-    gif_url = "https://telegra.ph/file/33067bb12f7165f8654f9.mp4"
+    gif_url = "https://telegra.ph/file/feb6dd0a1cb8576943c0f.jpg"
     message.reply_video(
         #chat_id=message.chat.id,
         video=gif_url,
@@ -251,6 +260,13 @@ def view_queue(client, message):
 
         message.reply_text(queue_text, disable_web_page_preview=True)
 
+@Client.on_message(filters.command("rem_queue") & filters.private)
+def view_queue(client, message):
+    with download_lock:
+        if global_queue
+            asyncio.delete(global_queue)
+            message.reply_text("All queue removed.")
+            return
 @Client.on_message(filters.command("latest") & filters.private)
 def send_latest_anime(client, message):
     try:
@@ -281,7 +297,7 @@ def send_latest_anime(client, message):
             message.reply_text(f"Failed to fetch data from the API. Status code: {response.status_code}")
     
     except Exception as e:
-        client.send_message(-1002457905787, f"Error: {e}")
+        client.send_message(-100245790578, f"Error: {e}")
         message.reply_text("Something went wrong. Please try again later.")
 
 
