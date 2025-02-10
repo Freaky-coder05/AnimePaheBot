@@ -4,6 +4,7 @@
 
 import requests
 import os
+import time
 import string
 import random
 import shutil
@@ -11,6 +12,7 @@ import re
 from helper.database import*
 import subprocess
 import json
+from helper.utils import progress_for_pyrogram
 from config import LOG_CHANNEL
 def create_short_name(name):
     # Check if the name length is greater than 25
@@ -115,6 +117,8 @@ def send_and_delete_file(client, chat_id, file_path, thumbnail=None, caption="",
                 file_path,
                 thumb=thumbnail if thumbnail else None,
                 caption=caption
+                progress=progress_for_pyrogram,
+                progress_args=("`Upload Started....`", ms, time.time()))
             )
         else:
             # Send as video
