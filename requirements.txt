@@ -3,7 +3,7 @@ pyrogram
 #...For Web Scraping...#
 bs4==0.0.2
 #...For Handling Requests...#
-requests==2.31.0
+requests
 #...For Database...#
 pymongo
 #...For Enhancing Bot Performance...#
