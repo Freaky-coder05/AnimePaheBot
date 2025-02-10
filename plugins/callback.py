@@ -49,7 +49,7 @@ def anime_details(client, callback_query):
         f"**Score**: {score}\n"
         f"[Anime Link]({anime_link})\n\n"
         f"**Bot Made By**\n"
-        f"    **[RAHAT](tg://user?id=1235222889)**"
+        f"    AWT_Botz"
     )
 
     # Store the session_id for episodes
@@ -59,7 +59,8 @@ def anime_details(client, callback_query):
         "title": title        # Store the poster URL here
     }
 
-    episode_button = InlineKeyboardMarkup([[InlineKeyboardButton("Episodes", callback_data="episodes")]])
+    episode_button = InlineKeyboardMarkup([[InlineKeyboardButton("Episodes", callback_data="episodes")
+					    InlineKeyboardButton("close❌" , callback_data="close")]])
     client.send_photo(
         chat_id=callback_query.message.chat.id,
         photo=poster_url,
