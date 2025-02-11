@@ -1,6 +1,6 @@
 # AnimePaheBot
 
-![AnimePaheBot](https://envs.sh/aWO.jpg)
+![AnimePaheBot](https://vault.pictures/p/73f05b1874e841efb87d107779bd4d2d)
 
 A fully customizable Telegram bot for anime lovers. You can use it to search, download, and manage your favorite anime shows. Built with Python and Pyrogram, it's simple to deploy and easy to modify.
 
