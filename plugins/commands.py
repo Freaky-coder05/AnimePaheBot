@@ -174,7 +174,7 @@ def search_anime(client, message):
     reply_markup = InlineKeyboardMarkup(anime_buttons)
     # Reply to the same message with anime title buttons
     #message.reply_text("Select an anime:", reply_markup=reply_markup, quote=True)
-    gif_url = "https://telegra.ph/file/feb6dd0a1cb8576943c0f.jpg"
+    gif_url = "https://ibb.co/8nG6CRPM"
     message.reply_video(
         #chat_id=message.chat.id,
         video=gif_url,
