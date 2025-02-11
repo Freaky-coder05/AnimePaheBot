@@ -6,6 +6,7 @@ bs4==0.0.2
 requests
 #...For Database...#
 pymongo
+pytz
 #...For Enhancing Bot Performance...#
 tgcrypto
 #...For Grabbing Episode Information...#
