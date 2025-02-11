@@ -174,7 +174,7 @@ def search_anime(client, message):
     reply_markup = InlineKeyboardMarkup(anime_buttons)
     # Reply to the same message with anime title buttons
     #message.reply_text("Select an anime:", reply_markup=reply_markup, quote=True)
-    gif_url = "https://ibb.co/8nG6CRPM"
+    gif_url = "https://imagekit.io/tools/asset-public-link?detail=%7B%22name%22%3A%22shangri-la-frontier-season-2-new-visual-v0-lxDvU10hyDv15oNseLR_oa2ZtDwlpVyS3vmQ8ufbg2c.jpg%22%2C%22type%22%3A%22image%2Fjpeg%22%2C%22signedurl_expire%22%3A%222028-02-11T07%3A35%3A40.497Z%22%2C%22signedUrl%22%3A%22https%3A%2F%2Fmedia-hosting.imagekit.io%2F%2Fc7f71d7a45cf4966%2Fshangri-la-frontier-season-2-new-visual-v0-lxDvU10hyDv15oNseLR_oa2ZtDwlpVyS3vmQ8ufbg2c.jpg%3FExpires%3D1833867340%26Key-Pair-Id%3DK2ZIVPTIP2VGHC%26Signature%3DyfKM8uxJC4Gp3E6Ebk63C2CYg0cFnI16DFME~1HX-RwhaWb8brgV-h86Im1pU0tx0mCOQHa5pne6RIF0cBeeGxTG-MY3l5l-GoGEIuqzMNglAxgFaZH886ZpxWMfHP7JfbkIflboCboGe7jk1OPmaUPxgibhgv~m3JaU3KYkz6FL-aGnWhF6MDS379dwTl4KwQtDKS4w07SOTZe8iCLQCxgJonSSvRKtpjmA7FdsBI5ZaS4l7tUqRnHre9IqH4fo76PCkfD4-UfSWxpHA1xNZocxZKEn07CfVjb~ngy6q6iCJjpajdFT9C-p2xsTwxHG1bBe978OXpvjdxz6tFC3FA__%22%7D"
     message.reply_video(
         #chat_id=message.chat.id,
         video=gif_url,
