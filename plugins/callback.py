@@ -14,6 +14,7 @@ from helper.database import*
 from config import DOWNLOAD_DIR
 from bs4 import BeautifulSoup
 import re
+from pyrogram.enums import ParseMode
 
 
 episode_data = {}
@@ -289,7 +290,7 @@ def download_and_upload_file(client, callback_query):
         send_and_delete_file(client, callback_query.message.chat.id, dl_msg, download_path, thumb_path, caption_to_use, user_id)
         # Remove the thumbnail file if it was downloaded
         remove_from_queue(user_id, direct_link)
-        dl_msg.edit(f"<b><pre>Episode Uploaded 🎉</pre></b>")
+        dl_msg.edit(f"<b><blockquote>Episode Uploaded 🎉</blockquote></b>",parse_mode=ParseMode.HTML)
         if thumb_path and os.path.exists(thumb_path):
             os.remove(thumb_path)
         if user_download_dir and os.path.exists(user_download_dir):
