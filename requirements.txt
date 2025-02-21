@@ -1,5 +1,5 @@
 #...For Bot Library...#
-pyrofork 
+pyrogram 
 #...For Web Scraping...#
 bs4==0.0.2
 #...For Handling Requests...#
