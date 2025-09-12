@@ -157,7 +157,7 @@ def search_anime(client, message):
         message.reply_text(f"Usage: <code> /anime anime_name</code>")
         return
 
-    search_url = f"https://animepahe.ru/api?m=search&q={query.replace(' ', '+')}"
+    search_url = f"https://animepahe.si/api?m=search&q={query.replace(' ', '+')}"
     response = session.get(search_url).json()
 
     if response['total'] == 0:
